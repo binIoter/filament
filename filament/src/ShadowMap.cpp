@@ -80,7 +80,6 @@ void ShadowMap::render(DriverApi& driver, Handle<HwRenderTarget> rt,
     params.flags.clear = TargetBufferFlags::DEPTH;
     params.flags.discardStart = TargetBufferFlags::DEPTH;
     params.flags.discardEnd = TargetBufferFlags::COLOR0 | TargetBufferFlags::STENCIL;
-    params.clearDepth = 1.0;
     params.viewport = viewport;
 
     FCamera const& camera = getCamera();
@@ -181,8 +180,9 @@ void ShadowMap::update(const FScene::LightSoa& lightData, size_t index, FScene c
 
     FLightManager::ShadowParams params = lcm.getShadowParams(li);
     mPolygonOffset = {
-            .slope = params.options.polygonOffsetSlope,
-            .constant = params.options.polygonOffsetConstant
+            // handle reversed Z
+            .slope = -params.options.polygonOffsetSlope,
+            .constant = -params.options.polygonOffsetConstant
     };
     mat4f projection(camera.cullingProjection);
     if (params.options.shadowFar > 0.0f) {

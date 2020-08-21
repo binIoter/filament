@@ -142,6 +142,9 @@ OpenGLContext::OpenGLContext() noexcept {
     glHint(GL_FRAGMENT_SHADER_DERIVATIVE_HINT, GL_NICEST);
 #endif
 
+    // reversed Z
+    glDepthRangef(1.0f, 0.0f);
+
 #if !defined(NDEBUG) && defined(GL_KHR_debug)
     if (ext.KHR_debug) {
         auto cb = [](GLenum source, GLenum type, GLuint id, GLenum severity, GLsizei length,

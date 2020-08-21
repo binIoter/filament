@@ -119,7 +119,7 @@ void ShadowMapManager::prepare(FEngine& engine, DriverApi& driver, SamplerGroup&
                     .filterMag = SamplerMagFilter::LINEAR,
                     .filterMin = SamplerMinFilter::LINEAR,
                     .compareMode = SamplerCompareMode::COMPARE_TO_TEXTURE,
-                    .compareFunc = SamplerCompareFunc::LE
+                    .compareFunc = SamplerCompareFunc::GE
             }});
 }
 
