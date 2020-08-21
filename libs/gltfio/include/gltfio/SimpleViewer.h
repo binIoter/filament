@@ -200,13 +200,13 @@ private:
     int mShadowCascades = 1;
     bool mEnableContactShadows = false;
     std::array<float, 3> mSplitPositions = {0.25f, 0.50f, 0.75f};
-    bool mEnableDithering = true;
-    bool mEnableFxaa = true;
+    bool mEnableDithering = false;
+    bool mEnableFxaa = false;
     bool mEnableMsaa = true;
-    filament::View::AmbientOcclusionOptions mSSAOOptions = { .enabled = true };
-    filament::View::BloomOptions mBloomOptions = { .enabled = true };
+    filament::View::AmbientOcclusionOptions mSSAOOptions = { .enabled = false };
+    filament::View::BloomOptions mBloomOptions = { .enabled = false };
     filament::View::FogOptions mFogOptions = {};
-    filament::View::TemporalAntiAliasingOptions mTAAOptions = { .enabled = true };
+    filament::View::TemporalAntiAliasingOptions mTAAOptions = { .enabled = false };
     int mSidebarWidth;
     uint32_t mFlags;
 };

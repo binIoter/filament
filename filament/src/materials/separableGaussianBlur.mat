@@ -90,6 +90,6 @@ fragment {
             }
         }
 
-        postProcess.color.rgb = sum;
+        postProcess.color.rgb = vec3(10) + sum;
     }
 }

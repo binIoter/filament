@@ -96,7 +96,7 @@ struct App {
     } scene;
 
     struct ColorGradingOptions {
-        bool enabled = true;
+        bool enabled = false;
         int quality = static_cast<int>(ColorGrading::QualityLevel::MEDIUM);
         int toneMapping = static_cast<int>(ColorGrading::ToneMapping::ACES_LEGACY);
         int temperature = 0;
